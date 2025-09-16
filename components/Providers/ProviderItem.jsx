@@ -59,7 +59,7 @@ const ProviderItem = ({ provider: { name, company_name, phone_number, address, i
     return (
         <div className='px-4 hover:scale-[1.01] transition-transform duration-300 flex flex-row justify-between items-center py-2 shadow-xl bg-background rounded-lg'>
             <div className='flex flex-row gap-4 items-center justify-center w-fit'>
-                <div>
+                <div className='hidden sm:inline'>
                     {/* Changed: Dicebear seed uses provider name */}
                     <img className='w-10 h-10 rounded-full' src={`https://api.dicebear.com/9.x/notionists/png?seed=${name}&backgroundColor=ffffff`} />
                 </div>
