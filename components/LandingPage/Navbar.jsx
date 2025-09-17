@@ -5,7 +5,7 @@ import React, { useState } from 'react'; // Import useState
 import { Button } from '../ui/button';
 import { createClient } from '@/utils/supabase/client';
 import { usePathname } from 'next/navigation';
-import { Bird, GlobeLock, Package, ScrollText, Settings, UserRound, UsersRound } from 'lucide-react';
+import { Bird, GlobeLock, Landmark, Package, ScrollText, Settings, UserRound, UsersRound, Wallet } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedText from "./AnimatedText"
 import {
@@ -41,6 +41,8 @@ const Navbar = () => {
                         {/* <NavLink icon={<ScrollText className='size-5' />} isOpen={pathname.includes('/dashboard/invoice')} href={'/dashboard/invoices'}>Invoices</NavLink> */}
                         <NavLink icon={<Package className='size-5' />} isOpen={pathname === "/dashboard/inventory"} href={'/dashboard/inventory'}>Inventory</NavLink>
                         <NavLink icon={<GlobeLock className='size-5' />} isOpen={pathname === "/dashboard/providers"} href={'/dashboard/providers'}>Providers</NavLink>
+                        <NavLink icon={<Landmark className='size-5' />} isOpen={pathname === "/dashboard/banks"} href={'/dashboard/banks'}>Banks</NavLink>
+                        <NavLink icon={<Wallet className='size-5' />} isOpen={pathname === "/dashboard/payments"} href={'/dashboard/payments'}>Payment</NavLink>
 
                     </div>
                 </div>
@@ -60,7 +62,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='sm:hidden flex flex-row p-4'>
-              
+
                 <Sheet>
                     <SheetTrigger asChild>
                         <Button >{'Open Sidebar >'}</Button>
@@ -70,12 +72,14 @@ const Navbar = () => {
                             <SheetTitle><AnimatedText main={"Molvi"} accent={"Software"} /></SheetTitle>
                         </SheetHeader>
                         <div className='flex flex-col px-4 gap-10'>
-                          
+
                             <div className='flex flex-col gap-2 md:gap-5'>
                                 <NavLink icon={<UsersRound className='size-5' />} isOpen={pathname === "/dashboard"} href={'/dashboard'}>Clients</NavLink>
                                 {/* <NavLink icon={<ScrollText className='size-5' />} isOpen={pathname.includes('/dashboard/invoice')} href={'/dashboard/invoices'}>Invoices</NavLink> */}
                                 <NavLink icon={<Package className='size-5' />} isOpen={pathname === "/dashboard/inventory"} href={'/dashboard/inventory'}>Inventory</NavLink>
                                 <NavLink icon={<GlobeLock className='size-5' />} isOpen={pathname === "/dashboard/providers"} href={'/dashboard/providers'}>Providers</NavLink>
+                                <NavLink icon={<Landmark className='size-5' />} isOpen={pathname === "/dashboard/banks"} href={'/dashboard/banks'}>Banks</NavLink>
+                                <NavLink icon={<Wallet className='size-5' />} isOpen={pathname === "/dashboard/payments"} href={'/dashboard/payments'}>Payment</NavLink>
 
                             </div>
                         </div>

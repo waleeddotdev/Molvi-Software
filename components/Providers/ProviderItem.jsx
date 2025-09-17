@@ -60,11 +60,9 @@ const ProviderItem = ({ provider: { name, company_name, phone_number, address, i
         <div className='px-4 hover:scale-[1.01] transition-transform duration-300 flex flex-row justify-between items-center py-2 shadow-xl bg-background rounded-lg'>
             <div className='flex flex-row gap-4 items-center justify-center w-fit'>
                 <div className='hidden sm:inline'>
-                    {/* Changed: Dicebear seed uses provider name */}
                     <img className='w-10 h-10 rounded-full' src={`https://api.dicebear.com/9.x/notionists/png?seed=${name}&backgroundColor=ffffff`} />
                 </div>
                 <div>
-                    {/* Changed: Display provider's name */}
                     <p className='font-recoleta text-lg font-extrabold '>{name}  {company_name && ` (${company_name})`}</p>
                     <p className='text-sm opacity-70'>{phone_number}</p>
                     <p className='text-sm opacity-70'>{address}</p>
@@ -73,7 +71,6 @@ const ProviderItem = ({ provider: { name, company_name, phone_number, address, i
             <div className='flex flex-row justify-center items-center gap-2'>
                 <Dialog onOpenChange={(e) => {
                     if (!e) {
-                        // Reset state on dialog close
                         setProviderName(name);
                         setCompanyName(company_name);
                         setPhoneNumber(phone_number);
@@ -85,7 +82,6 @@ const ProviderItem = ({ provider: { name, company_name, phone_number, address, i
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px]">
                         <DialogHeader>
-                            {/* Changed: Dialog title and description */}
                             <DialogTitle>Edit Provider</DialogTitle>
                             <DialogDescription>
                                 Make changes to the provider information here. Click save when you're done.

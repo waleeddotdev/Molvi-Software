@@ -19,7 +19,7 @@ export async function login(formData) {
 
 
     const data = {
-        email: email,
+        email: email.toLowerCase(),
         password: password
     }
 

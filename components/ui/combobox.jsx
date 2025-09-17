@@ -24,7 +24,6 @@ import {
 function Combobox({ name, items, selectedValue, onValueChange, placeholder = "Select a" }) {
     const [open, setOpen] = React.useState(false)
 
-
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
@@ -35,14 +34,14 @@ function Combobox({ name, items, selectedValue, onValueChange, placeholder = "Se
                     className="w-[200px] justify-between !border !border-border !bg-card hover:text-foreground/80"
                 >
                     {selectedValue
-                        ? items.find((item) => String(item.id) === String(selectedValue.id) || String(item.id) === selectedValue)?.name
+                        ? items.find((item) => String(item.id) === String(selectedValue.id) || String(item.id) === selectedValue)?.name || "N/A"
                         : `${placeholder} ${name}...`}
                     <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[200px] border-2 border-border p-0">
                 <Command>
-                    <CommandInput placeholder={`Search ${name}...`} />
+                    <CommandInput  placeholder={`Search ${name}...`} />
                     <CommandList>
                         <CommandEmpty>No results found.</CommandEmpty>
                         <CommandGroup>
@@ -50,12 +49,12 @@ function Combobox({ name, items, selectedValue, onValueChange, placeholder = "Se
                                 <CommandItem
                                     key={item.id}
                                     // FIX: The `value` prop must be a string.
-                                    value={String(item.id)}
+                                    value={String(item.name)}
                                     onSelect={(currentValue) => {
                                         // The 'currentValue' from onSelect is the string value from the item.
                                         // It's better to manage state in the parent component.
                                         // This sets the value to the selected ID, or deselects if clicked again.
-                                        onValueChange(currentValue === selectedValue ? "" : currentValue)
+                                        onValueChange(item)
 
                                         setOpen(false)
                                     }}
