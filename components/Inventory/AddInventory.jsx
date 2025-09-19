@@ -67,7 +67,7 @@ const AddInventory = () => {
                     quantity: parseInt(quantity),
                     cost_price: parseFloat(costPrice),
                     selling_price: parseFloat(sellingPrice),
-                    provider_id: selectedProvider,
+                    provider_id: selectedProvider.id,
                 },
             ])
             .select();
